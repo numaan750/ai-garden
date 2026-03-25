@@ -28,7 +28,7 @@ app.use("/api", generateRoutes);
 // app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 app.get("/", (req, res) => {
-  res.send("Ai-GardenBackend is running");
+  res.send("Ai-Garden Backend is running");
 });
 
 export default app;
