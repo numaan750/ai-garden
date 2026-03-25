@@ -138,11 +138,7 @@ const PremiumPopup = ({ isOpen, onClose }) => {
                 }
               `}
               >
-                <div
-                  className="absolute top-0 left-1/2 -translate-x-1/2 translate-y-[0%] 
-                   bg-gradient-to-b from-[#34B23D] to-[#164C1A] 
-                text-white text-[10px] sm:text-xs px-6 py-1 rounded-b-xl font-semibold"
-                >
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 translate-y-[0%] bg-gradient-to-b from-[#34B23D] to-[#164C1A] text-white text-[10px] sm:text-xs px-6 py-1 rounded-b-xl font-semibold">
                   Best Offer
                 </div>
 
