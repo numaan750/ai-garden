@@ -1,0 +1,35 @@
+{
+  "name": "soulmate",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "geoip-lite": "^1.4.10",
+    "mongodb": "^6.18.0",
+    "next-i18n": "^0.0.1",
+    "node-mailer": "^0.1.1",
+    "sanitize-html": "^2.17.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.1",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.1.4",
+    "jimp": "^1.6.0",
+    "lucide-react": "^0.563.0",
+    "next": "^16.1.4",
+    "png-to-ico": "^3.0.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-hot-toast": "^2.6.0",
+    "react-icons": "^5.5.0",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^4.2.1"
+  }
+}
