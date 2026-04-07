@@ -9,9 +9,9 @@ import { BLOG_POSTS } from "@/lib/blogPosts";
 import { getAllBlogPostsFromDb } from "@/lib/blogDb";
 
 export const metadata = {
-  title: "Blog – AI Soulmate Drawings",
-  description:
-    "Articles and updates about the AI Soulmate Drawing Generator, how it works, and tips for better results.",
+  title: "Blog – AI Garden Designs",
+description:
+  "Explore articles and updates about AI Garden Designs, including tips for designing virtual gardens, how the platform works, and creative gardening ideas.",
   alternates: { canonical: "/blog" },
   robots: { index: true, follow: true },
 };
