@@ -22,22 +22,27 @@ export const us = {
       {
         Imge: "/home-images/Design-Garden.png",
         alt: "Design-Garden.webp",
+        text:"Design Garden"
       },
       {
         Imge: "/home-images/Remove-Clean.png",
         alt: "Remove-Clean.webp",
+        text:"Remove Clean"
       },
       {
         Imge: "/home-images/Replace-Objects.png",
         alt: "Replace-Objects.webp",
+        text:"Replace Objects"
       },
       {
         Imge: "/home-images/Add-Objects.png",
         alt: "Add-Objects.webp",
+        text:"Add Objects"
       },
       {
         Imge: "/home-images/Landscaping.png",
         alt: "Landscaping.webp",
+        text:"Landscaping"
       },
     ],
   },
@@ -214,6 +219,9 @@ export const us = {
     title: "Ai Garden",
     page1: "Privacy Policy",
     page2: "Terms & Conditions",
+    page3: "Acceptable Use",
+    page4: "Pricing",
+    page5: "Manage Subscription",
     text: "© 2025 AI Garden. Built with ❤️ by Devsrank Pvt. Ltd. All rights reserved",
   },
 };

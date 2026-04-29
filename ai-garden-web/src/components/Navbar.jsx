@@ -4,6 +4,7 @@ import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { altFromSrcOrAlt } from "@/lib/altText";
+import { FaApple } from "react-icons/fa";
 
 const Navbar = ({ navLinks, country }) => {
   const [open, setOpen] = useState(false);
@@ -12,6 +13,7 @@ const Navbar = ({ navLinks, country }) => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const router = useRouter();
   const pathname = usePathname();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
@@ -49,6 +51,14 @@ const Navbar = ({ navLinks, country }) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
+  useEffect(() => {
+    const token =
+      localStorage.getItem("authToken") || localStorage.getItem("token");
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   useEffect(() => {
     if (open) {
@@ -92,6 +102,15 @@ const Navbar = ({ navLinks, country }) => {
           window.scrollTo({ top: y, behavior: "smooth" });
         }, 300);
       }
+    }
+  };
+
+  const handlePortalClick = (e) => {
+    e.preventDefault();
+    if (isLoggedIn) {
+      router.push("/portal/dashboard");
+    } else {
+      router.push("/portal/login?mode=signup");
     }
   };
 
@@ -143,19 +162,27 @@ const Navbar = ({ navLinks, country }) => {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <button
-              onClick={() => router.push("/portal/login")}
-              className="px-5 py-2 rounded-full border border-[#34B23D] text-[#1E1E1E]"
+            {/* <button
+              onClick={handlePortalClick}
+              className="relative group cursor-pointer overflow-hidden px-5 py-2 rounded-full bg-gradient-to-b from-[#34B23D] to-[#164C1A] text-white font-medium"
             >
-              Login
-            </button>
+              {isLoggedIn ? "Dashboard" : "Portal"}
 
-            <button
-              onClick={() => router.push("/portal/login?mode=signup")}
-              className="px-5 py-2 rounded-full bg-gradient-to-b from-[#34B23D] to-[#164C1A] text-white font-medium"
+              <span className="absolute inset-0 -translate-x-full -translate-y-full group-hover:translate-x-full group-hover:translate-y-full transition-transform duration-700 bg-gradient-to-br from-transparent via-white/20 to-transparent" />
+            </button> */}
+
+            <Link
+              href="https://apps.apple.com/us/app/ai-garden-my-landscape-design/id6753977398"
+              target="_blank"
             >
-              Sign Up
-            </button>
+              <button className="relative px-5 py-2 bg-white cursor-pointer text-[#1E1E1E] border border-black/20 rounded-full overflow-hidden group hover:bg-gray-100 transition flex items-center gap-2">
+                <FaApple className="relative z-10 text-lg" />
+                <span className="relative z-10 text-sm whitespace-nowrap">
+                  Get the App
+                </span>
+                <span className="absolute inset-0 -translate-x-full -translate-y-full group-hover:translate-x-full group-hover:translate-y-full transition-transform duration-700 bg-gradient-to-br from-transparent via-black/10 to-transparent" />
+              </button>
+            </Link>
           </div>
 
           <button
@@ -181,19 +208,25 @@ const Navbar = ({ navLinks, country }) => {
             ))}
 
             <div className="pt-4 flex flex-col gap-3">
-              <button
-                onClick={() => router.push("/portal/login")}
-                className="w-full py-3 rounded-full border border-[#34B23D] text-[#1E1E1E] "
-              >
-                Login
-              </button>
-
-              <button
-                onClick={() => router.push("/portal/login?mode=signup")}
+              {/* <button
+                onClick={handlePortalClick}
                 className="w-full py-3 rounded-full bg-gradient-to-r from-[#34B23D] to-[#164C1A] text-white"
               >
-                Sign Up
-              </button>
+                {isLoggedIn ? "Go to Dashboard" : "Sign Up"}
+              </button> */}
+
+              <Link
+                href="https://apps.apple.com/us/app/pixelift-ai-photo-enhancer/id6748871047"
+                target="_blank"
+              >
+                <button className="relative w-full py-3 bg-white cursor-pointer text-[#1E1E1E] border border-black/20 rounded-full overflow-hidden flex items-center justify-center gap-2 group">
+                  <FaApple className="relative z-10 text-lg" />
+                  <span className="relative z-10 text-sm whitespace-nowrap">
+                    Get the App
+                  </span>
+                  <span className="absolute inset-0 -translate-x-full -translate-y-full group-hover:translate-x-full group-hover:translate-y-full transition-transform duration-700 bg-gradient-to-br from-transparent via-black/10 to-transparent" />
+                </button>
+              </Link>
             </div>
           </div>
         )}

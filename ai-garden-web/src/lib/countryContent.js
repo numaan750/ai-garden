@@ -131,11 +131,31 @@ function normalizeFooter(footer, fallbackFooter) {
       base.page2,
       "Terms & Conditions"
     );
+  const acceptableuseLabel =
+    pickFirstDefined(
+      raw.page3,
+      links.find((l) => /acceptable/i.test(l?.label ?? ""))?.label,
+      base.page3,
+      "Acceptable Use Policy"
+    );
+  const PricingLabel =
+    pickFirstDefined(raw.page4, links.find((l) => /pricing/i.test(l?.label ?? ""))?.label, base.page4, "Pricing");
+  const managesubscriptionLabel =
+    pickFirstDefined(
+      raw.page5,
+      links.find((l) => /manage/i.test(l?.label ?? ""))?.label,
+      base.page5,
+      "Manage Subscription"
+    );  
+    
 
   return {
     title: pickFirstDefined(raw.title, base.title, "Soulmate Art"),
     page1: privacyLabel,
     page2: termsLabel,
+    page3: acceptableuseLabel,
+    page4: PricingLabel,
+    page5: managesubscriptionLabel,
     text: pickFirstDefined(raw.text, raw.copyright, raw.description, base.text),
   };
 }
@@ -242,6 +262,7 @@ function normalizeMagicalCore(magicalCore, fallbackMagicalCore) {
   const features = (rawFeatures ?? baseFeatures).map((f) => ({
     Imge: pickFirstDefined(f?.Imge, f?.image),
     alt: f?.alt,
+    text: f?.text,
   }));
 
   return {

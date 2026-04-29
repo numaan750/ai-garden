@@ -2,6 +2,8 @@ import Image from "next/image";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { altFromSrcOrAlt } from "@/lib/altText";
+import Link from "next/link";
+import { FaApple } from "react-icons/fa";
 
 const Home = ({ hero, country }) => {
   return (
@@ -22,17 +24,35 @@ const Home = ({ hero, country }) => {
             {hero?.description}
           </p>
 
-          <div className="flex justify-start md:justify-start">
-            <a href="/portal/login">
-              <button className="inline-flex cursor-pointer items-center justify-center gap-5 bg-gradient-to-b from-[#34B23D] to-[#164C1A] text-white font-medium px-5 sm:px-2 py-2 rounded-full w-fit">
-                <span className="text-[14px] sm:text-[16px] ml-2">
+          <div className="flex flex-wrap justify-start gap-3">
+            <a
+              href="https://apps.apple.com/us/app/ai-garden-my-landscape-design/id6753977398"
+              target="blank"
+            >
+              <button className="relative inline-flex cursor-pointer items-center justify-center gap-3 overflow-hidden bg-gradient-to-b from-[#34B23D] to-[#164C1A] text-white font-medium px-2 py-2 rounded-full w-fit group">
+                <span className="relative z-10 text-[14px] sm:text-[16px] ml-2">
                   {hero?.buttonText}
                 </span>
-                <div className="bg-white rounded-full p-2 text-[#34B23D] ml-4">
+                <div className="relative z-10 bg-white rounded-full p-2 text-[#34B23D] ml-4 text-[#34B23D]">
                   <FaArrowRight />
                 </div>
+                <span className="absolute inset-0 -translate-x-full -translate-y-full group-hover:translate-x-full group-hover:translate-y-full transition-transform duration-700 bg-gradient-to-br from-transparent via-white/20 to-transparent" />
               </button>
             </a>
+
+            {/* Button 2 - Get the App */}
+            {/* <Link
+              href="https://apps.apple.com/us/app/ai-garden-my-landscape-design/id6753977398"
+              target="_blank"
+            >
+              <button className="relative inline-flex cursor-pointer items-center justify-center gap-2 overflow-hidden bg-white text-[#1E1E1E] border border-black/20 font-medium px-5 py-3 rounded-full w-fit group hover:bg-gray-100 transition">
+                <FaApple className="relative z-10 text-lg" />
+                <span className="relative z-10 text-[14px] sm:text-[16px] whitespace-nowrap">
+                  Get the App
+                </span>
+                <span className="absolute inset-0 -translate-x-full -translate-y-full group-hover:translate-x-full group-hover:translate-y-full transition-transform duration-700 bg-gradient-to-br from-transparent via-black/10 to-transparent" />
+              </button>
+            </Link> */}
           </div>
         </div>
 

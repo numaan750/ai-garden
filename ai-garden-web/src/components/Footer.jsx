@@ -4,6 +4,7 @@ import React from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 import { altFromSrcOrAlt } from "@/lib/altText";
+import { SUPPORT_EMAIL } from "@/lib/site";
 
 const Footer = ({ footer, country }) => {
   const pathname = usePathname();
@@ -20,6 +21,19 @@ const Footer = ({ footer, country }) => {
     footer?.links?.find((l) => /terms|condition/i.test(l?.label ?? ""))
       ?.label ??
     "Terms & Conditions";
+
+  const acceptableuseLabel =
+    footer?.page3 ??
+    footer?.links?.find((l) => /acceptable/i.test(l?.label ?? ""))?.label ??
+    "Acceptable Use Policy";
+  const pricingLabel =
+    footer?.page4 ??
+    footer?.links?.find((l) => /pricing/i.test(l?.label ?? ""))?.label ??
+    "Pricing";
+  const manageSubscriptionLabel =
+    footer?.page5 ??
+    footer?.links?.find((l) => /subscription/i.test(l?.label ?? ""))?.label ??
+    "Manage Subscription";
 
   const footerText = footer?.text ?? footer?.copyright ?? footer?.description;
 
@@ -105,11 +119,41 @@ const Footer = ({ footer, country }) => {
             >
               Blog
             </Link>
+            <Link
+              href="/acceptable-use"
+              className="hover:text-[#34B23D] transition-colors"
+            >
+              {acceptableuseLabel}
+            </Link>
+
+            <Link
+              href="/pricing"
+              className="hover:text-[#34B23D] transition-colors"
+            >
+              {pricingLabel}
+            </Link>
+            <Link
+              href="/manage-subscription"
+              className="hover:text-[#34B23D] transition-colors"
+            >
+              {manageSubscriptionLabel}
+            </Link>
           </nav>
 
           <p className="text-[16px] sm:text-[18px] text-[#000000] max-w-xs sm:max-w-md">
             {footerText}
           </p>
+          {SUPPORT_EMAIL ? (
+            <p className="text-[14px] sm:text-[16px] text-black">
+              Support:{" "}
+              <a
+                href={`mailto:${SUPPORT_EMAIL}`}
+                className="underline transition-colors"
+              >
+                {SUPPORT_EMAIL}
+              </a>
+            </p>
+          ) : null}
         </div>
       </div>
     </footer>

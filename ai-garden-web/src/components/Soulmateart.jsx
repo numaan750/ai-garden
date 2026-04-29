@@ -3,6 +3,8 @@ import Image from "next/image";
 import React from "react";
 import { usePathname } from "next/navigation";
 import { altFromSrcOrAlt } from "@/lib/altText";
+import Link from "next/link";
+import { FaApple } from "react-icons/fa";
 
 const SoulmateArt = ({ soulmateArt, country }) => {
   const pathname = usePathname();
@@ -36,22 +38,20 @@ const SoulmateArt = ({ soulmateArt, country }) => {
             </p>
 
             <div className="flex gap-4 flex-wrap">
-              <a
+              <Link
                 href="https://apps.apple.com/us/app/ai-garden-my-landscape-design/id6753977398"
-                target="blank"
-                rel="noopener noreferrer"
+                target="_blank"
               >
-                <Image
-                  src="/home-images/App-Store.png"
-                  alt={altFromSrcOrAlt({
-                    alt: "App-Store.png",
-                    locale: country,
-                  })}
-                  width={180}
-                  height={60}
-                  className="h-11 md:h-12 w-auto cursor-pointer"
-                />
-              </a>
+                <button className="relative w-full px-5 py-2.5 bg-white cursor-pointer text-[#1E1E1E] border border-black/20 rounded-full overflow-hidden flex items-center justify-center gap-2 group">
+                  <FaApple className="relative z-10 text-lg" />
+
+                  <span className="relative z-10 text-sm whitespace-nowrap">
+                    Get the App
+                  </span>
+
+                  <span className="absolute inset-0 -translate-x-full -translate-y-full group-hover:translate-x-full group-hover:translate-y-full transition-transform duration-700 bg-gradient-to-br from-transparent via-black/10 to-transparent" />
+                </button>
+              </Link>
             </div>
 
             <div className="flex gap-12 pt-4">
